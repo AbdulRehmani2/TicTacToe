@@ -1,0 +1,18 @@
+body{
+    background-image: linear-gradient(to bottom, rgb(1, 1, 67), rgb(1, 1, 53) 50%);
+    background-repeat: no-repeat;
+    height: 100vh;
+    color: #c9d1d5;
+}
+
+#blockContainer{
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+    width: 100%;
+    justify-content: center;
+}
+
+.blocks{
+    border: 3px solid #99a0a3;
+}
