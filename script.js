@@ -13,6 +13,13 @@ let GameBoard = () =>
                 index = Array.from(itemList).indexOf(e.target);
                 if(board[index] == null)
                 {
+                    let img = document.createElement('img');
+                    if(m == 'X')
+                        img.src = "/resources/cross.png";
+                    else
+                        img.src = "/resources/circle.png";
+                    img.classList.add('image');
+                    itemList[index].appendChild(img);
                     board[index] = m;
                     console.log(board);
                 }
@@ -40,9 +47,11 @@ let Player = (move) =>
     return {move, playMove};
 }
 
-let player2 = Player(2);
-let player1 = Player(1);
+let player2 = Player('O');
+let player1 = Player('X');
 let turn = 1;
+
+player2.playMove();
 
 // console.log(GameBoard.board);
 
