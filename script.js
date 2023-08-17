@@ -1,39 +1,48 @@
-(() => 
+let GameBoard = () => 
 {
     let board = [null, null, null, null, null, null, null, null, null];
     let itemList = document.querySelectorAll('.blocks');
     let item = document.getElementById('blockContainer');
-    let move = (e) => {
-        if(e.target != e.currentTarget)
-        {
-            index = Array.from(itemList).indexOf(e.target);
-            board[index] = 0;
-            console.log(board);
-        }
-    };
-    item.addEventListener('click', move);
-})();
+    let move;
+    function playMove(m)
+    {
+        item.removeEventListener('click', move);
+        move = (e) => {
+            if(e.target != e.currentTarget)
+            {
+                index = Array.from(itemList).indexOf(e.target);
+                if(board[index] == null)
+                {
+                    board[index] = m;
+                    console.log(board);
+                }
+            }
+        };
+        item.addEventListener('click', move);
+    }
+    function getBoard(){
+        return board;
+    }
+    return {getBoard, playMove};
+};
+
+let Board = GameBoard();
 
 
 
-// let Player = (move) => 
-// {
-//     function playMove()
-//     {
-//         item.addEventListener('click', (e) => {
-//         if(e.target != e.currentTarget)
-//         {
-//             index = Array.from(itemList).indexOf(e.target);
-//             board[index] = move;
-//         }
-//         });
-//     }
-//     return {playMove};
-// }
+let Player = (move) => 
+{
+    function playMove()
+    {
+        Board.playMove(move);
+        console.log(Board.getBoard())
+    }
+    return {move, playMove};
+}
 
-// let player1 = Player(1);
-// let player2 = Player(2);
-// player1.playMove();
+let player2 = Player(2);
+let player1 = Player(1);
+let turn = 1;
 
 // console.log(GameBoard.board);
 
