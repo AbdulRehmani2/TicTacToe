@@ -40,7 +40,11 @@ let GameBoard = (function()
                         title.innerHTML = "Player 2 Wins"
                     }
                     if(!board.includes(null))
-                        item.innerHTML = 'Draw';
+                    {
+                        item.removeEventListener('click', move);
+                        title.innerHTML = "Draw"
+                    }
+                        
                     console.log(board);
                 }
             }

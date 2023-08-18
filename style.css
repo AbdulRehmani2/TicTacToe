@@ -1,5 +1,5 @@
 body{
-    background-image: linear-gradient(to bottom, rgb(1, 1, 67), rgb(1, 1, 53) 50%);
+    background-image: linear-gradient(to bottom, rgb(8, 8, 97), rgb(4, 4, 62) 50%);
     background-repeat: no-repeat;
     height: 100vh;
     color: #c9d1d5;
@@ -9,7 +9,7 @@ body{
     display: grid;
     grid-template-columns: 100px 100px 100px;
     grid-template-rows: 100px 100px 100px;
-    width: 100%;
+    width: 20%;
     justify-content: center;
 }
 
