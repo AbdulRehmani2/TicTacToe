@@ -1,8 +1,9 @@
-let GameBoard = () => 
+let GameBoard = (function()
 {
     let board = [null, null, null, null, null, null, null, null, null];
     let itemList = document.querySelectorAll('.blocks');
     let item = document.getElementById('blockContainer');
+    let title = document.querySelector('div>h1');
     let move;
     function playMove(m)
     {
@@ -29,9 +30,17 @@ let GameBoard = () =>
                     board[index] = m;
                     let result = CheckBoard();
                     if(result == 'X')
-                        item.innerHTML = 'Player 1 Wins';
+                    {
+                        item.removeEventListener('click', move);
+                        title.innerHTML = "Player 1 Wins"
+                    }
                     else if(result == 'O')
-                        item.innerHTML = 'Player 2 Wins';
+                    {
+                        item.removeEventListener('click', move);
+                        title.innerHTML = "Player 2 Wins"
+                    }
+                    if(!board.includes(null))
+                        item.innerHTML = 'Draw';
                     console.log(board);
                 }
             }
@@ -42,9 +51,9 @@ let GameBoard = () =>
         return board;
     }
     return {getBoard, playMove};
-};
+})()
 
-let Board = GameBoard();
+let Board = GameBoard;
 
 let Player = (move) => 
 {
@@ -68,6 +77,10 @@ function CheckBoard()
     {
         if(board[i] == board[i+1] && board[i] == board[i+2])
         {
+            if(board[i] != null)
+            {
+                ChangeColor(i, i+1, i+2);
+            }
             return board[i];
         }
     }
@@ -75,15 +88,35 @@ function CheckBoard()
     {
         if(board[i] == board[i+3] && board[i] == board[i+6])
         {
+            if(board[i] != null)
+            {
+                ChangeColor(i, i+3, i+6);
+            }
             return board[i];
         }
     }
     if(board[0] == board[4] && board[0] == board[8])
     {
+        if(board[0] != null)
+        {
+            ChangeColor(0, 4, 8);
+        }
         return board[0];
     }
     if(board[2] == board[4] && board[2] == board[6])
     {
+        if(board[2] != null)
+        {
+            ChangeColor(2, 4, 6);
+        }
         return board[2];
     }
+}
+
+function ChangeColor(num1, num2, num3)
+{
+    let items = document.querySelectorAll('.blocks');
+    items[num1].style.border = '5px solid red';
+    items[num2].style.border = '5px solid red';
+    items[num3].style.border = '5px solid red';
 }
