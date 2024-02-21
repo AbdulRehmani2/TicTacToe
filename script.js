@@ -17,12 +17,12 @@ let GameBoard = (function()
                     let img = document.createElement('img');
                     if(m == 'X')
                     {
-                        img.src = "/resources/cross.png";
+                        img.src = "./resources/cross.png";
                         player2.playMove();
                     }
                     else
                     {
-                        img.src = "/resources/circle.png";
+                        img.src = "./resources/circle.png";
                         player1.playMove();
                     }
                     img.classList.add('image');

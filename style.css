@@ -7,7 +7,7 @@ body::before{
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url('/resources/background.jpg');
+    background-image: url('./resources/background.jpg');
     height: 100vh;
     width: 210vh;
     color: #c9d1d5;
