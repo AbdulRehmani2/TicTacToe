@@ -33,17 +33,20 @@ let GameBoard = (function()
                     if(result == 'X')
                     {
                         item.removeEventListener('click', move);
-                        title.innerHTML = "Player 1 Wins"
+                        title.innerHTML = "Player 1 Wins";
+                        document.querySelector('.replay').classList.remove("hide");
                     }
                     else if(result == 'O')
                     {
                         item.removeEventListener('click', move);
-                        title.innerHTML = "Player 2 Wins"
+                        title.innerHTML = "Player 2 Wins";
+                        document.querySelector('.replay').classList.remove("hide");
                     }
                     if(!board.includes(null))
                     {
                         item.removeEventListener('click', move);
-                        title.innerHTML = "Draw"
+                        title.innerHTML = "Draw";
+                        document.querySelector('.replay').classList.remove("hide");
                     }
                         
                     console.log(board);
@@ -125,3 +128,7 @@ function ChangeColor(num1, num2, num3)
     items[num2].style.border = '5px solid red';
     items[num3].style.border = '5px solid red';
 }
+
+document.querySelector('.replay').addEventListener('click', () => {
+    location.reload();
+})

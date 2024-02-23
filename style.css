@@ -11,7 +11,7 @@ body::before{
     background-position: center;
     background-repeat: repeat-y;
     background-size: cover;
-    filter: brightness(0.3);
+    filter: brightness(0.5);
     height: 100%;
     width: 100%;
     z-index: -1;
@@ -60,6 +60,22 @@ body::before{
 .player-info>div{
     padding: 0.5rem;
     flex-direction: column;
+}
+
+.replay{
+    background-color: transparent;
+    border: none;
+    color: #99a0a3;
+    font-size: 2rem;
+}
+
+.replay:hover{
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+
+.hide{
+    display: none;
 }
 
 @media screen and (max-height: 700px) {
