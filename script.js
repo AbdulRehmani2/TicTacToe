@@ -5,6 +5,7 @@ let GameBoard = (function()
     let item = document.getElementById('blockContainer');
     let title = document.querySelector('div>h1');
     let move;
+    
     function playMove(m)
     {
         item.removeEventListener('click', move);
